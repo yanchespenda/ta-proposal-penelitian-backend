@@ -25,3 +25,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 // });
 
 Route::post('/kirim', 'Kirim@index');
+
+Route::get('/ambil/1', 'Ambil@getCurrent');
+Route::get('/ambil/2', 'Ambil@getStatistik');

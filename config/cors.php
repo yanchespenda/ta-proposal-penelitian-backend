@@ -20,7 +20,9 @@ return [
         'allow_credentials' => false,
 
         'allow_origins' => [
-            '*',
+            'localhost',
+            '127.0.0.1',
+            'arduino.arproject.web.id'
         ],
 
         'allow_methods' => [

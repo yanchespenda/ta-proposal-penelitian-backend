@@ -13,7 +13,7 @@ class TblHujan extends Migration
      */
     public function up()
     {
-        Schema::create('TblHujan', function (Blueprint $table) {
+        Schema::create('tblhujan', function (Blueprint $table) {
             $table->bigIncrements('id')->unsigned();
             $table->float('nilai_hujan_analog', 6, 2)->nullable()->default(0);
             $table->boolean('nilai_hujan_digital')->nullable()->default(0);
@@ -36,7 +36,7 @@ class TblHujan extends Migration
     {
         Schema::disableForeignKeyConstraints();
 
-        Schema::dropIfExists('TblHujan');
+        Schema::dropIfExists('tblhujan');
 
         Schema::enableForeignKeyConstraints();
     }

@@ -12,6 +12,9 @@ class Kirim extends Controller
 {
     public $input_analog;
     public $input_digital;
+    public $input_suhuf;
+    public $input_suhuc;
+    public $input_lembab;
 
     private $request;
 
@@ -23,17 +26,35 @@ class Kirim extends Controller
         $validator = Validator::make($this->request->all(), [
             'analog' => 'required',
             'digital' => 'required',
+            'sc' => 'required',
+            'sf' => 'required',
+            'lb' => 'required',
         ], [
             'analog.required' => 10,
-            'digital.required' => 20
+            'digital.required' => 20,
+            'sc.required' => 30,
+            'sf.required' => 40,
+            'lb.required' => 50,
         ]);
 
         $this->input_analog = $this->request->input('analog');
         $this->input_digital = $this->request->input('digital');
+        $this->input_suhuf = $this->request->input('sf');
+        $this->input_suhuc = $this->request->input('sc');
+        $this->input_lembab = $this->request->input('lb');
 
-        if($validator && $this->input_analog >= 0 && $this->input_analog <= 1024 && ($this->input_digital == "0" || $this->input_digital == "1")){
+        if(
+            $validator && 
+            $this->input_analog >= 0 && 
+            $this->input_analog <= 1024 && 
+            ($this->input_digital == "0" || $this->input_digital == "1") &&
+            is_float($this->input_suhuc) &&
+            is_float($this->input_suhuf) &&
+            $this->input_lembab >= 0 &&
+            $this->input_lembab <= 100
+        ){
             
-            $sendData = MdlKirim::Kirim($this->input_analog, $this->input_digital);
+            $sendData = MdlKirim::Kirim($this->input_analog, $this->input_digital, $this->input_suhuc, $this->input_suhuf, $this->input_lembab);
             if($sendData){
                 return response()->json([
                     'status' => 1,

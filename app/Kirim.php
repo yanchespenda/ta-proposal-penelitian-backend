@@ -26,10 +26,13 @@ class Kirim extends Model
      */
     protected $hidden = [];
 
-    public function scopeKirim($query, $analog, $digital){
+    public function scopeKirim($query, $analog, $digital, $suhuc, $suhuf, $lembab){
         $data_insert = [
             'nilai_hujan_analog' => $analog,
             'nilai_hujan_digital' => $digital,
+            'nilai_suhu_c' => $suhuc, 
+            'nilai_suhu_f' => $suhuf, 
+            'nilai_lembab' => $lembab,
             'created_at' => Carbon::now()
         ];
 

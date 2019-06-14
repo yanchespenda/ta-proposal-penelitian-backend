@@ -97,7 +97,7 @@ class Ambil extends Controller
             'message' => 'Success',
             'data' => [
                 // 'q' => $getDataTangerang,
-                'w' => $getDataRumah,
+                // 'w' => $getDataRumah,
                 'tangerang' => $dataTangerang,
                 'rumah' => $dataRumah
             ]

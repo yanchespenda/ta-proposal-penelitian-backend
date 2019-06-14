@@ -34,7 +34,7 @@ class Ambil extends Controller
             'kelembaban' => 0
         ];
         if(!empty($getDataRumah)) {
-            $isHujan = (isset($getDataRumah->nilai_hujan_digital) && $getDataRumah->nilai_hujan_digital == 0)?1:0;
+            $isHujan = (isset($getDataRumah->nilai_hujan_digital) && !$getDataRumah->nilai_hujan_digital)?1:0;
             $lastUpdate = (isset($getDataRumah->created_at))?strtotime($getDataRumah->created_at):0;
             $dataRumah = [
                 'icon' => ($isHujan)?3:2,

@@ -69,11 +69,6 @@ class Kirim extends Controller
         return response()->json([
             'status' => 0,
             'message' => 'Something required',
-            'q' => $this->input_analog,
-            'w' => $this->input_digital,
-            'e' => $this->input_suhuc,
-            'f' => $this->input_suhuf,
-            'g' => $this->input_lembab
         ], 200);
     }
 }

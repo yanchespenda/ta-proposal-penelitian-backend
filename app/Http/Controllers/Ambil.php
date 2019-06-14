@@ -41,7 +41,7 @@ class Ambil extends Controller
                 'suhu_c' => round((isset($getDataRumah->nilai_suhu_c))?$getDataRumah->nilai_suhu_c:0),
                 'suhu_f' => round((isset($getDataRumah->nilai_suhu_f))?$getDataRumah->nilai_suhu_f:0),
                 'kelembaban' => (isset($getDataRumah->nilai_lembab))?$getDataRumah->nilai_lembab:0,
-                'last' => Carbon::createFromTimeStamp($lastUpdate)->format("F d, Y - H:i:s")
+                'last' => Carbon::createFromTimeStamp($lastUpdate)->setTimezone('Asia/Jakarta')->format("F d, Y - H:i:s")
             ];
         }
         if(!empty($getDataTangerang)) {

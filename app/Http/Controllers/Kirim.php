@@ -48,10 +48,9 @@ class Kirim extends Controller
             $this->input_analog >= 0 && 
             $this->input_analog <= 1024 && 
             ($this->input_digital == "0" || $this->input_digital == "1") &&
-            (is_float($this->input_suhuc) || is_numeric($this->input_suhuc)) &&
-            (is_float($this->input_suhuf) || is_numeric($this->input_suhuf)) &&
-            $this->input_lembab >= 0 &&
-            $this->input_lembab <= 100
+            (is_float($this->input_suhuc) || is_numeric($this->input_suhuc) || is_double($this->input_suhuc)) &&
+            (is_float($this->input_suhuf) || is_numeric($this->input_suhuf) || is_double($this->input_suhuf)) &&
+            (is_float($this->input_lembab) || is_numeric($this->input_lembab) || is_double($this->input_lembab))
         ){
             
             $sendData = MdlKirim::Kirim($this->input_analog, $this->input_digital, $this->input_suhuc, $this->input_suhuf, $this->input_lembab);

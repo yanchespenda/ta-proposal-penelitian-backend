@@ -48,8 +48,8 @@ class Kirim extends Controller
             $this->input_analog >= 0 && 
             $this->input_analog <= 1024 && 
             ($this->input_digital == "0" || $this->input_digital == "1") &&
-            is_float($this->input_suhuc) &&
-            is_float($this->input_suhuf) &&
+            (is_float($this->input_suhuc) || is_numeric($this->input_suhuc)) &&
+            (is_float($this->input_suhuf) || is_numeric($this->input_suhuf)) &&
             $this->input_lembab >= 0 &&
             $this->input_lembab <= 100
         ){
@@ -68,7 +68,12 @@ class Kirim extends Controller
         }
         return response()->json([
             'status' => 0,
-            'message' => 'Something required'
+            'message' => 'Something required',
+            'q' => $this->input_analog,
+            'w' => $this->input_digital,
+            'e' => $this->input_suhuc,
+            'f' => $this->input_suhuf,
+            'g' => $this->input_lembab
         ], 200);
     }
 }

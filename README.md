@@ -1,6 +1,13 @@
 # ta-proposal-penelitian-backend
 Tugas Akhir Bahasa Indonesia - Proposal Individu - Semester 4 - Universitas Pamulang
 
+## Frontend
+https://github.com/yanchespenda/ta-proposal-penelitian-frontend
+
+## Arduino
+https://github.com/yanchespenda/ta-proposal-penelitian-arduino
+
+
 <p align="center"><img src="https://laravel.com/assets/img/components/logo-laravel.svg"></p>
 
 <p align="center">
